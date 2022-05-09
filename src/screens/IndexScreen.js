@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+
 import { Context } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
@@ -45,6 +46,16 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    ),
+  };
+};
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
@@ -58,7 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   icon: {
-    fontSize: 24,
+    fontSize: 30,
   },
 });
 
